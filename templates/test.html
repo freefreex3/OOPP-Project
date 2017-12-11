@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+{% block body %}
+{% from "includes/_formhelper.html" import render_field %}
+<header class="masthead">
+    <div class="container">
+        <div class="intro-text">
+            <div class="intro-lead-in">Welcome To Our Website!</div>
+            <div class="intro-heading text-uppercase">It's Nice To Meet You</div>
+            <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
+        </div>
+    </div>
+</header>
+
+<form method="POST" action="">
+    <!-- Services -->
+    <section id="services">
+        <div class="container">
+
+            {% if form.errors %}
+            <div class="alert alert-danger">
+                <ul>
+                    {% for field_name, field_errors in form.errors|dictsort if field_errors %}
+                    {% for error in field_errors %}
+                    <li>{{ form[field_name].label }}: {{ error }}</li>
+                    {% endfor %}
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+
+            <div class="row text-center">
+                <div class="col-md-4" style="margin: auto">
+                    {{ render_field(form.username, class_="radio-inline") }}
+                </div>
+                <div class="col-md-4" style="margin: auto">
+                    {{ render_field(form.password, class_="radio-inline") }}
+                </div>
+                <div class="col-md-4" style="margin:auto">
+                    <input type="submit" value="Update" class="btn btn-info"/>
+                </div>
+            </div>
+        </div>
+    </section>
+</form>
+{% endblock %}
