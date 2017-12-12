@@ -25,6 +25,3 @@ class Users:
     def set_email(self, email):
         self.__email = email
 
-class Technician(Users):
-    def __init__(self, ):
-

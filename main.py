@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 from wtforms import Form, StringField, TextAreaField, RadioField, SelectField, PasswordField, validators
 app = Flask(__name__)
 
+
 class LoginForm(Form):
     username = StringField('Username', [validators.Length(min=1, max=150), validators.DataRequired()])
     password = PasswordField('Password')
@@ -34,3 +35,4 @@ def Profile():
 if __name__ == "__main__":
     app.run(debug=True)
 
+# "bagus" -desmond
