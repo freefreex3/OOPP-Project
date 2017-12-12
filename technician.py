@@ -1,6 +1,6 @@
-from Users import Users
+from .Users import Users
 
-class technician(users):
+class technician(Users):
     def __init__(self, username, password, phone_no, email, occupation):
         Users.__init__(self, username, password, phone_no, email)
         self.__occupation = occupation
